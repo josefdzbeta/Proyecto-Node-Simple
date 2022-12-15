@@ -3,20 +3,26 @@ block contenido
     main.container.mt-5
         h1.text-center.mt-5 #{pagina}
         .row
+            .col-md-12
             h2.d-block.w-100.text-center ¡Comparte tu Experiencia!
+
+            if(errores)
+                each error in errores
+                    .alert.col.alert-danger.text-center= error.mensaje
+
             .row.justify-content-center.col
                 .col-md-8
                     form(action="/testimonios", method="POST")
 
                         .form-group
                             label(for="nombre") Nombre
-                            input#nombre(type="text", placeholder="Tu Nombre", name="nombre", class="form-control")
+                            input#nombre(type="text", placeholder="Tu nombre", name="nombre", class="form-control", value= nombre)
 
                         .form-group
                             label(for="email") Email
-                            input#email(type="text", placeholder="email@email.com", name="email", class="form-control")
+                            input#email(type="email", placeholder="Tu email ej.: jason@email.com", name="email", class="form-control", value= email)
 
                         .form-group
                             label(for="mensaje") Mensaje
-                            textarea#mensaje(class="form-control", name="mensaje", placeholder="Mensaje", rows=3)
+                            textarea#mensaje(class="form-control", name="mensaje", placeholder="Comparte tu Experiencia", rows=3)= mensaje
                         input.btn.btn-success.btn-block(type="submit")

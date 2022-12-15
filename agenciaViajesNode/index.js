@@ -28,6 +28,8 @@ app.use((req, res, next/* -- hace que vaya al siguiente middleware*/) =>{
     next();
 });
 
+//Agregar body parser para leer los datos del formulario
+app.use(express.urlencoded({extended:true}));
 
 //Definir carpeta pública
 app.use(express.static('public'));
