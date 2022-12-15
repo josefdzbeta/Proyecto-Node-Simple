@@ -1,6 +1,9 @@
 import express from "express";
 import router from './routes/index.js';
 import db from './config/db.js';
+// import dotenv from 'dotenv/config'
+// dotenv.config();
+
 
 // const express = require("express"); // common js
 
